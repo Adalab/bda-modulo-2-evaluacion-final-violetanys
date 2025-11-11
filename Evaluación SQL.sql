@@ -28,7 +28,7 @@ SELECT title
 
 
 /* 5.- Recupera los nombres de todos los actores */
-SELECT CONCAT(first_name, ' ', last_name) AS nombre_actor  -- Se utiliza unit las dos columnas. 
+SELECT CONCAT(first_name, " ", last_name) AS nombre_actor  -- Se utiliza unit las dos columnas. 
 	FROM actor;
 
 /*6.- Encuentra el nombre y apellido de los actores 
@@ -105,7 +105,7 @@ SELECT categ.name AS nombre_categoria, COUNT(r.rental_id) AS total_alquileres
 	GROUP BY categ.name;
     
     
-    /* 12.- Encuentra el promedio de duración de las películas para cada clasificación de la tabla film y
+/* 12.- Encuentra el promedio de duración de las películas para cada clasificación de la tabla film y
 muestra la clasificación junto con el promedio de duración.*/
 SELECT rating, AVG(length) AS duracion_promedio
 	FROM film
@@ -219,13 +219,24 @@ SELECT title
 	WHERE rating = 'R' AND length > 120;
     
 /* 20.-  Encuentra las categorías de películas que tienen un promedio de duración superior a 120 minutos y
-muestra el nombre de la categoría junto con el promedio de duración. -- category + film_category + film (length)
-
-
+muestra el nombre de la categoría junto con el promedio de duración.*/ -- category + film_category + film (length)
+SELECT *
+	FROM category AS c
+    INNER JOIN film_category AS fc 
+		ON c.category_id = fc.category_id;
+        
+SELECT c.name AS nombre_categoria, AVG(f.length) AS promedio_duración   -- SE PODRÍA INCLUIR UN ROUND () PARA QUE LUEGO NOS REDONDEE LOS DECIM; EJEMP: ROUND(AVG(f.length), 2) AS promedio_duracion
+	FROM category AS c
+    INNER JOIN film_category AS fc 
+		ON c.category_id = fc.category_id
+	INNER JOIN film AS f 
+		ON fc.film_id = f.film_id
+	GROUP BY c.name
+    HAVING AVG(f.length) > 120;
 /*21. Encuentra los actores que han actuado en al menos 5 películas y muestra el nombre del actor junto
 con la cantidad de películas en las que han actuado.*/ -- FILM ACTOR + ACTOR
 
-    SELECT  CONCAT(a.first_name, " ", a.last_name) AS nombre_actor
+SELECT  CONCAT(a.first_name, " ", a.last_name) AS nombre_actor
 	FROM actor AS a
     INNER JOIN film_actor AS fa ON a.actor_id = fa.film_id;
     
