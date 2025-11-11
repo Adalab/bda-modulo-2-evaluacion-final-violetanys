@@ -2,6 +2,17 @@
 
 El siguiente proyecto es la prueba técnica correspondiente al Módulo 2 de Adalab. En el que me introduzco al mundo de MySQL Workbench. 
 
+## Explicación de la prueba:
+Para este ejercicio utilizaré la bases de datos Sakila siendo esta, una base de datos de ejemplo que simula una tienda de alquiler de películas. La evaluación consta de una serie de preguntas que evalúan la comprensión y habilidades en relación con SQL.
+
+## Material utilizado 📗📘📕
+
+Para esta evalución se han utilizado materiales como:
+    - Apuntes de clase
+    - Notebook LM
+    - Explicaciones de GitBook de Adalab
+    - Apoyo en ejemplos de ejercicios ya resueltos en clase
+
 ## Habilidades adquiridas  📖✍
 
     Consultas Básicas y Filtrado
